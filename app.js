@@ -81,11 +81,13 @@ class Book {
       //clear field
       UI.clearFields();
   });
+
   
   // Event: Remove a Book
   document.querySelector('#book-list').addEventListener('click',(e) => {
     UI.deleteBook(e.target);
   });
+
 
     // Remove book from store
   
