@@ -94,6 +94,9 @@ class Book {
       //add book to UI
       UI.addBookToList(book);
 
+      //show success message
+      UI.showAlert('Book Added' , 'success');
+
       //clear field
       UI.clearFields();
       }
@@ -104,9 +107,6 @@ class Book {
   document.querySelector('#book-list').addEventListener('click',(e) => {
     UI.deleteBook(e.target);
 
-  });
-
-
-    // Remove book from store
-  
-    // Show success message
+    //show book removed message
+    UI.showAlert('Book Removed' , 'success');
+  });  
