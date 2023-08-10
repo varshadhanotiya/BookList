@@ -42,6 +42,13 @@ class Book {
       list.appendChild(row);
     }
 
+    static deleteBook(el){
+      if(el.classList.contains('delete')){
+        //parent of 'x' is <td> and parent of <td>is tr so delete the whole row <tr>
+        el.parentElement.parentElement.remove();
+      }
+    }
+
     static clearFields(){
       document.querySelector('#title').value = '';
       document.querySelector('#author').value = '';
@@ -76,7 +83,10 @@ class Book {
   });
   
   // Event: Remove a Book
-  
+  document.querySelector('#book-list').addEventListener('click',(e) => {
+    UI.deleteBook(e.target);
+  });
+
     // Remove book from store
   
     // Show success message
