@@ -56,6 +56,9 @@ class Book {
         const container = document.querySelector('.container');
         const form = document.querySelector('#book-form');
         container.insertBefore(div,form); //inser before the form and container is parent
+
+        //Vanish in 3 seconds
+        setTimeout(() => document.querySelector('alert').remove() , 3000);
     }
 
     static clearFields(){
