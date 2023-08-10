@@ -9,24 +9,24 @@ class Book {
   
   // UI Class: Handle UI Tasks
   class UI {
-    static displayBooks() {
-      const StoredBooks = [
-        {
-            title: 'Book One',
-            author: 'John Doe',
-            isbn: '323232'
-        },
-        {
-            title: 'Book Two',
-            author: 'Jone Doe',
-            isbn: '121212'
-        }
-      ];
+    // static displayBooks() {
+    //   const StoredBooks = [
+    //     {
+    //         title: 'Book One',
+    //         author: 'John Doe',
+    //         isbn: '323232'
+    //     },
+    //     {
+    //         title: 'Book Two',
+    //         author: 'Jone Doe',
+    //         isbn: '121212'
+    //     }
+    //   ];
 
-      const books = StoredBooks;
+    //   const books = StoredBooks;
   
-      books.forEach((book) => UI.addBookToList(book));
-    }
+    //   books.forEach((book) => UI.addBookToList(book));
+    // }
   
     static addBookToList(book) {
       const list = document.querySelector('#book-list');
@@ -41,6 +41,12 @@ class Book {
   
       list.appendChild(row);
     }
+
+    static clearFields(){
+      document.querySelector('#title').value = '';
+      document.querySelector('#author').value = '';
+      document.querySelector('#isbn').value = '';
+    }
   }
   
   // Store Class: Handles Storage
@@ -53,7 +59,7 @@ class Book {
   document.querySelector('#book-form').addEventListener('submit' , (e)=>{
       //prevent actual submit
       e.preventDefault();
-      
+
       //get form values
       const title = document.querySelector('#title').value;
       const author = document.querySelector('#author').value;
@@ -62,7 +68,11 @@ class Book {
       //instantiate book
       const book = new Book(title,author,isbn);
 
-      console.log(book);
+      //add book to UI
+      UI.addBookToList(book);
+
+      //clear field
+      UI.clearFields();
   });
   
   // Event: Remove a Book
